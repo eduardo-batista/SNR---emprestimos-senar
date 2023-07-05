@@ -20,7 +20,7 @@ return new class extends Migration
             $table->datetime('return_date')->nullable();
             $table->text('observation')->nullable();
             $table->foreignId('equipment_id')
-                ->constrained('equipments')
+                ->constrained('equipment')
                 ->onUpdate('cascade')
                 ->onDelete('restrict');
             $table->foreignId('borrower_id')
