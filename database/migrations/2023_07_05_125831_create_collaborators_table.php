@@ -18,6 +18,10 @@ return new class extends Migration
             $table->string('name');
             $table->string('cpf')->unique();
             $table->string('email')->unique();
+            $table->foreignId('creator_id')
+                ->constrained('users')
+                ->onUpdate('cascade')
+                ->onDelete('restrict');
             $table->timestamps();
         });
     }

@@ -24,6 +24,10 @@ return new class extends Migration
             $table->boolean('has_power_supply');
             $table->boolean('has_removable_battery');
             $table->boolean('status');
+            $table->foreignId('creator_id')
+                ->constrained('users')
+                ->onUpdate('cascade')
+                ->onDelete('restrict');
             $table->foreignId('equipment_type_id')
                 ->constrained('equipment_types')
                 ->onUpdate('cascade')

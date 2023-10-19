@@ -17,6 +17,10 @@ return new class extends Migration
             $table->id();
             $table->string('label');
             $table->text('content');
+            $table->foreignId('creator_id')
+                ->constrained('users')
+                ->onUpdate('cascade')
+                ->onDelete('restrict');
             $table->timestamps();
         });
     }
